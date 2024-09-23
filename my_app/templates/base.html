@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Auth0 DEMO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0070f3;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        header a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #0070f3;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Django Auth0 DEMO</h1>
+        </div>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="/logout">Log Out</a>
+                <a href="/profile">Profile</a>
+            {% else %}
+                <a href="/login/auth0">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block body %}
+            {% endblock body %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Django Auth0 Demo</p>
+    </footer>
+</body>
+</html>

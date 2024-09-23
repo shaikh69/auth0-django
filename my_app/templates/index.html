@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="welcome-container">
+        <h1 class="welcome-heading">Hello, Welcome to the Application</h1>
+    </div>
+{% endblock body %}
+
+<style>
+    .welcome-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Ensures the content is vertically centered */
+        background-color: #f0f4f8;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-heading {
+        font-size: 2.5rem;
+        color: #333;
+        text-align: center;
+    }
+</style>
